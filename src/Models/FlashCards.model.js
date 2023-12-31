@@ -1,20 +1,23 @@
 const {DataTypes}=require('sequelize')
 const db=require('./DB');
-const User=require('./User.model')
+const Deck=require('./Deck.model');
 
 
 const FlashCards=db.define('flashcards',{
-    front:{
+    word:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    back:{
+    definition:{
         type:DataTypes.STRING,
         allowNull:false
+    },
+    region:{
+       type:DataTypes.JSON,
+       allowNull:false 
     },
     timetodisplay:{
-        type:DataTypes.TIME,
-    
+        type:DataTypes.TIME
     }  
 },{
     freezeTableName: true,
@@ -22,6 +25,5 @@ const FlashCards=db.define('flashcards',{
     updatedAt:false
 })
 
-FlashCards.belongsTo(User,{foreignKey:{name:'usr'}});
-
+FlashCards.belongsTo(Deck,{foreignKey:{name:'dck'}});
 module.exports=FlashCards

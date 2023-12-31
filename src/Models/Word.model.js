@@ -8,9 +8,18 @@ const Word=db.define("words",{
     allowNull:false
   },
   sound:{
+    type:DataTypes.JSON,
+    allowNull:false
+  },
+  typeword:{
     type:DataTypes.STRING,
     allowNull:false
+  },
+  meaning:{
+    type:DataTypes.JSON,
+    allowNull:false
   }
+
 },{
     freezeTableName: true,
     createdAt:false,
