@@ -11,6 +11,6 @@ App.use(express.json());       // Analizador de json
 App.use(express.urlencoded({extended: true}));
 
 //routes
-App.use('/api/v1/',router)
+App.use(router)
 
 module.exports=App
